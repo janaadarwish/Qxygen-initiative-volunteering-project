@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مبادرة الأكسجين</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest:#173A26;
+    --leaf:#3E8E41;
+    --lime:#8FCB5C;
+    --paper:#F6FAF3;
+    --ink:#14231A;
+    --ink-soft:#3F5347;
+    --card-bg:#FFFFFF;
+    --card-border:#DCEAD6;
+    --ring:rgba(62,142,65,0.18);
+    --shadow: 0 10px 26px rgba(20,35,26,0.10);
+  }
+  :root:not([data-theme="light"]){
+    @media (prefers-color-scheme: dark){
+      --forest:#0D2317;
+      --leaf:#57A85A;
+      --lime:#9ED66B;
+      --paper:#0B160F;
+      --ink:#EAF3E7;
+      --ink-soft:#B7C9BC;
+      --card-bg:#132018;
+      --card-border:#22392A;
+      --ring:rgba(87,168,90,0.22);
+      --shadow: 0 10px 26px rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --forest:#0D2317;
+    --leaf:#57A85A;
+    --lime:#9ED66B;
+    --paper:#0B160F;
+    --ink:#EAF3E7;
+    --ink-soft:#B7C9BC;
+    --card-bg:#132018;
+    --card-border:#22392A;
+    --ring:rgba(87,168,90,0.22);
+    --shadow: 0 10px 26px rgba(0,0,0,0.35);
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans Arabic', Tahoma, Arial, sans-serif;
+    min-height:100vh;
+    overflow-x:hidden;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:14vh 6vw 10vh;
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    inset:-20% -20% auto -20%;
+    height:140%;
+    background: radial-gradient(60% 55% at 50% 20%, var(--ring), transparent 70%);
+    z-index:0;
+  }
+  .breath{
+    position:relative;
+    width:min(58vw, 260px);
+    height:min(58vw, 260px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:2.2rem;
+  }
+  .ring{
+    position:absolute;
+    border-radius:50%;
+    border:1.5px solid var(--leaf);
+    opacity:0;
+    animation:breathe 5.4s ease-out infinite;
+  }
+  .ring.r1{ width:56%; height:56%; animation-delay:0s; }
+  .ring.r2{ width:56%; height:56%; animation-delay:1.3s; }
+  .ring.r3{ width:56%; height:56%; animation-delay:2.6s; }
+  @keyframes breathe{
+    0%   { width:50%; height:50%; opacity:0; }
+    12%  { opacity:0.55; }
+    70%  { opacity:0; }
+    100% { width:100%; height:100%; opacity:0; }
+  }
+  .mark{
+    position:relative;
+    width:44%;
+    height:44%;
+    z-index:1;
+    filter:drop-shadow(0 8px 18px rgba(23,58,38,0.28));
+  }
+
+  h1.brand{
+    font-family:'Tajawal', Tahoma, sans-serif;
+    font-weight:900;
+    font-size:clamp(2.2rem, 7vw, 3.4rem);
+    margin:0 0 0.9rem;
+    color:var(--forest);
+    letter-spacing:-0.01em;
+    position:relative;
+    z-index:1;
+  }
+  :root[data-theme="dark"] h1.brand, .hero.dark-force h1.brand{ color:var(--lime); }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]) h1.brand{ color:var(--lime); }
+  }
+
+  p.tagline{
+    max-width:34ch;
+    margin:0 auto;
+    font-size:1.08rem;
+    line-height:1.85;
+    color:var(--ink-soft);
+    position:relative;
+    z-index:1;
+  }
+
+  .scroll-cue{
+    margin-top:3rem;
+    display:inline-flex;
+    flex-direction:column;
+    align-items:center;
+    gap:0.5rem;
+    color:var(--leaf);
+    text-decoration:none;
+    font-size:0.92rem;
+    font-weight:500;
+    position:relative;
+    z-index:1;
+  }
+  .scroll-cue svg{ animation:nudge 2.2s ease-in-out infinite; }
+  @keyframes nudge{
+    0%,100%{ transform:translateY(0); }
+    50%{ transform:translateY(6px); }
+  }
+
+  /* ---------- LINKS ---------- */
+  main{
+    padding:2vh 6vw 10vh;
+    max-width:640px;
+    margin:0 auto;
+  }
+  h2.section-title{
+    font-family:'Tajawal', Tahoma, sans-serif;
+    font-weight:700;
+    font-size:1.5rem;
+    color:var(--forest);
+    margin:0 0 1.6rem;
+    text-align:center;
+  }
+  :root[data-theme="dark"] h2.section-title{ color:var(--lime); }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]) h2.section-title{ color:var(--lime); }
+  }
+
+  .links-grid{
+    display:flex;
+    flex-direction:column;
+    gap:0.85rem;
+  }
+  .link-card{
+    display:flex;
+    align-items:center;
+    gap:1rem;
+    padding:1rem 1.25rem;
+    background:var(--card-bg);
+    border:1px solid var(--card-border);
+    text-decoration:none;
+    color:var(--ink);
+    font-family:'IBM Plex Sans Arabic', sans-serif;
+    font-weight:500;
+    font-size:1.02rem;
+    box-shadow:var(--shadow);
+    transition:transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+    border-radius:26px 10px 26px 10px;
+  }
+  .links-grid a:nth-child(even){
+    border-radius:10px 26px 10px 26px;
+  }
+  .link-card:hover, .link-card:focus-visible{
+    transform:translateX(-4px);
+    border-color:var(--leaf);
+  }
+  .link-card:focus-visible{
+    outline:2px solid var(--leaf);
+    outline-offset:3px;
+  }
+  .link-card .icon{
+    flex:0 0 auto;
+    width:38px;
+    height:38px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:linear-gradient(135deg, var(--leaf), var(--lime));
+    color:#fff;
+  }
+  .link-card .icon svg{ width:19px; height:19px; }
+  .link-card .label{ flex:1; }
+  .link-card .go{
+    flex:0 0 auto;
+    color:var(--leaf);
+    opacity:0.7;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about{
+    max-width:640px;
+    margin:0 auto;
+    padding:6vh 6vw 2vh;
+    border-top:1px solid var(--card-border);
+  }
+  .about p{
+    font-size:1.02rem;
+    line-height:1.9;
+    color:var(--ink-soft);
+    margin:0 0 1.4rem;
+  }
+  .about-points{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:0.9rem;
+  }
+  .about-points li{
+    display:flex;
+    align-items:flex-start;
+    gap:0.75rem;
+    font-size:0.98rem;
+    line-height:1.7;
+    color:var(--ink);
+  }
+  .about-points li::before{
+    content:"";
+    flex:0 0 auto;
+    width:8px;
+    height:8px;
+    margin-top:0.5em;
+    border-radius:50% 50% 50% 0;
+    background:var(--leaf);
+    transform:rotate(45deg);
+  }
+
+  footer{
+    text-align:center;
+    padding:4vh 6vw 6vh;
+    color:var(--ink-soft);
+    font-size:0.88rem;
+    line-height:1.9;
+  }
+  footer .fmark{ color:var(--leaf); }
+
+  /* ---------- MOBILE ---------- */
+  @media (max-width:480px){
+    .hero{ padding:9vh 6vw 6vh; }
+    .breath{ width:min(52vw, 190px); height:min(52vw, 190px); margin-bottom:1.6rem; }
+    h1.brand{ font-size:clamp(1.9rem, 8vw, 2.4rem); margin-bottom:0.7rem; }
+    p.tagline{ font-size:0.98rem; line-height:1.75; max-width:30ch; }
+    .scroll-cue{ margin-top:2.2rem; font-size:0.86rem; }
+    main{ padding:1vh 5vw 6vh; }
+    h2.section-title{ font-size:1.3rem; margin-bottom:1.2rem; }
+    .link-card{ padding:0.85rem 1rem; gap:0.8rem; font-size:0.95rem; border-radius:20px 8px 20px 8px; }
+    .links-grid a:nth-child(even){ border-radius:8px 20px 8px 20px; }
+    .link-card .icon{ width:34px; height:34px; }
+    .link-card .icon svg{ width:16px; height:16px; }
+    .about{ padding:5vh 5vw 1vh; }
+    .about p, .about-points li{ font-size:0.95rem; }
+  }
+  @media (max-width:360px){
+    h1.brand{ font-size:1.7rem; }
+    .link-card .label{ font-size:0.9rem; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="breath">
+    <span class="ring r1"></span>
+    <span class="ring r2"></span>
+    <span class="ring r3"></span>
+    <svg class="mark" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="شعار مبادرة الأكسجين">
+      <defs>
+        <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#173A26"/>
+          <stop offset="55%" stop-color="#3E8E41"/>
+          <stop offset="100%" stop-color="#9ED66B"/>
+        </linearGradient>
+      </defs>
+      <circle cx="100" cy="100" r="96" fill="url(#leafGrad)"/>
+      <path d="M100 30 C140 30 168 62 168 100 C168 130 148 152 122 160 C132 138 128 112 100 96 C74 112 72 140 82 160 C56 150 38 128 38 100 C38 62 66 30 100 30 Z"
+            fill="#F6FAF3" opacity="0.96"/>
+      <path d="M100 96 C120 108 122 132 108 156 C96 168 78 168 66 158 C82 150 92 128 100 96 Z" fill="#173A26"/>
+    </svg>
+  </div>
+
+  <h1 class="brand">مبادرة الأكسجين</h1>
+  <p class="tagline">تجمع تطوعي بيئي بنشتغل فيه مع بعض عشان هوا أنضف، وأرض أخضر، وناس واعية أكتر بكوكبها.</p>
+
+  <a class="scroll-cue" href="#links">
+    تابعونا وانضموا لينا
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </a>
+</section>
+
+<main id="links">
+  <h2 class="section-title">وصّل معانا</h2>
+  <div class="links-grid">
+
+    <a class="link-card" href="https://www.instagram.com/_oxygen_initiative?stkn=OHN4Y2xhdDBuNnBl" target="_blank" rel="noopener">
+      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1"/></svg></span>
+      <span class="label">انستغرام</span>
+      <span class="go">‹</span>
+    </a>
+
+    <a class="link-card" href="https://x.com/Oxygen_eg" target="_blank" rel="noopener">
+      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5l14 14M19 5L5 19"/></svg></span>
+      <span class="label">إكس (X)</span>
+      <span class="go">‹</span>
+    </a>
+
+    <a class="link-card" href="https://youtube.com/@oxygen_initiative?si=vCkfz5pJJ7KKMXWs" target="_blank" rel="noopener">
+      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="6" width="19" height="12" rx="4"/><path d="M10.5 9.5l5 2.5-5 2.5z" fill="currentColor" stroke="none"/></svg></span>
+      <span class="label">يوتيوب</span>
+      <span class="go">‹</span>
+    </a>
+
+    <a class="link-card" href="https://chat.whatsapp.com/Kasz2jViWr3DZfZsWs2bFk" target="_blank" rel="noopener">
+      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20l1.4-4.2A8 8 0 1112 20a8 8 0 01-4.2-1.2z"/></svg></span>
+      <span class="label">كومنيتي واتساب</span>
+      <span class="go">‹</span>
+    </a>
+
+    <a class="link-card" href="https://www.tiktok.com/@oxygen.initiative.eg?_r=1&_t=ZS-99jUNuQinsz" target="_blank" rel="noopener">
+      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 4v9.5a3.5 3.5 0 11-3-3.46"/><path d="M14 4c.4 2.2 2 3.8 4 4.2"/></svg></span>
+      <span class="label">تيك توك</span>
+      <span class="go">‹</span>
+    </a>
+
+    <a class="link-card" href="https://www.facebook.com/share/1Bz8PEDCAL/" target="_blank" rel="noopener">
+      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 8h2V5h-2a3 3 0 00-3 3v2H9v3h2v6h3v-6h2.2l.8-3H14V8z"/></svg></span>
+      <span class="label">فيسبوك</span>
+      <span class="go">‹</span>
+    </a>
+
+    <a class="link-card" href="https://www.linkedin.com/in/oxygen-initiative-819ab7429?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener">
+      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8" cy="8.5" r="0.6" fill="currentColor"/><path d="M8 11v6M12.5 17v-3.5c0-1.4 1-2.3 2.2-2.3 1.2 0 1.8.8 1.8 2.3V17"/></svg></span>
+      <span class="label">لينكدإن</span>
+      <span class="go">‹</span>
+    </a>
+
+    <a class="link-card" href="https://wa.me/201559090846" target="_blank" rel="noopener">
+      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20l1.4-4.2A8 8 0 1112 20a8 8 0 01-4.2-1.2z"/></svg></span>
+      <span class="label">واتساب ١</span>
+      <span class="go">‹</span>
+    </a>
+
+    <a class="link-card" href="https://wa.me/201035246291" target="_blank" rel="noopener">
+      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20l1.4-4.2A8 8 0 1112 20a8 8 0 01-4.2-1.2z"/></svg></span>
+      <span class="label">واتساب ٢</span>
+      <span class="go">‹</span>
+    </a>
+
+  </div>
+</main>
+
+<section class="about" id="about">
+  <h2 class="section-title">مين إحنا</h2>
+  <p>مبادرة الأكسجين مجموعة شباب متطوع بيصدق إن التغيير الحقيقي بيبدأ من حاجات بسيطة بنعملها مع بعض: شجرة بنزرعها، شارع بننضفه، أو فكرة بنوصلها لناس تانية. مش شرط تكون خبير بيئة عشان تشارك، يكفي إنك حابب تفرق.</p>
+  <ul class="about-points">
+    <li>حملات تشجير وتنظيف في أماكن مختلفة في مصر</li>
+    <li>ورش ولقاءات توعية عن البيئة والاستدامة</li>
+    <li>مجتمع تطوعي مفتوح لأي حد عايز يشارك بوقته أو فكره</li>
+  </ul>
+</section>
+
+<footer>
+  <span class="fmark">🍃</span> مبادرة الأكسجين — صُنع من أجل هوا أنضف وكوكب أخضر
+</footer>
+
+</body>
+</html>
