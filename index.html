@@ -3,10 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>مبادرة الأكسجين</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<title>مبادرة اكسجين</title>
 <style>
   :root{
     --forest:#173A26;
@@ -87,6 +84,15 @@
     justify-content:center;
     margin-bottom:2.2rem;
   }
+  .mark {
+  position: relative;
+  width: 44%;
+  height: 44%;
+  z-index: 1;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
   .ring{
     position:absolute;
     border-radius:50%;
@@ -102,13 +108,6 @@
     12%  { opacity:0.55; }
     70%  { opacity:0; }
     100% { width:100%; height:100%; opacity:0; }
-  }
-  .mark{
-    position:relative;
-    width:44%;
-    height:44%;
-    z-index:1;
-    filter:drop-shadow(0 8px 18px rgba(23,58,38,0.28));
   }
 
   h1.brand{
@@ -303,32 +302,18 @@
     <span class="ring r1"></span>
     <span class="ring r2"></span>
     <span class="ring r3"></span>
-    <svg class="mark" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="شعار مبادرة الأكسجين">
-      <defs>
-        <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#173A26"/>
-          <stop offset="55%" stop-color="#3E8E41"/>
-          <stop offset="100%" stop-color="#9ED66B"/>
-        </linearGradient>
-      </defs>
-      <circle cx="100" cy="100" r="96" fill="url(#leafGrad)"/>
-      <path d="M100 30 C140 30 168 62 168 100 C168 130 148 152 122 160 C132 138 128 112 100 96 C74 112 72 140 82 160 C56 150 38 128 38 100 C38 62 66 30 100 30 Z"
-            fill="#F6FAF3" opacity="0.96"/>
-      <path d="M100 96 C120 108 122 132 108 156 C96 168 78 168 66 158 C82 150 92 128 100 96 Z" fill="#173A26"/>
-    </svg>
-  </div>
+    <img class="mark" src="logo.png" alt="شعار مبادرة أكسجين">
+</div>
 
-  <h1 class="brand">مبادرة الأكسجين</h1>
-  <p class="tagline">تجمع تطوعي بيئي بنشتغل فيه مع بعض عشان هوا أنضف، وأرض أخضر، وناس واعية أكتر بكوكبها.</p>
-
-  <a class="scroll-cue" href="#links">
-    تابعونا وانضموا لينا
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-  </a>
+  <h1 class="brand">مبادرة أكسجين</h1>
+<section class="about" id="about">
+  <h2 class="section-title">مين إحنا</h2>
+  <p>مبادرة الأكسجين مجموعة شباب متطوع بيصدق إن التغيير الحقيقي بيبدأ من حاجات بسيطة بنعملها مع بعض: شجرة بنزرعها، شارع بننضفه، أو فكرة بنوصلها لناس تانية. مش شرط تكون خبير بيئة عشان تشارك، يكفي إنك حابب تفرق.</p>
+</section>
 </section>
 
 <main id="links">
-  <h2 class="section-title">وصّل معانا</h2>
+  <h2 class="section-title">تواصلوا معانا</h2>
   <div class="links-grid">
 
     <a class="link-card" href="https://www.instagram.com/_oxygen_initiative?stkn=OHN4Y2xhdDBuNnBl" target="_blank" rel="noopener">
@@ -387,16 +372,6 @@
 
   </div>
 </main>
-
-<section class="about" id="about">
-  <h2 class="section-title">مين إحنا</h2>
-  <p>مبادرة الأكسجين مجموعة شباب متطوع بيصدق إن التغيير الحقيقي بيبدأ من حاجات بسيطة بنعملها مع بعض: شجرة بنزرعها، شارع بننضفه، أو فكرة بنوصلها لناس تانية. مش شرط تكون خبير بيئة عشان تشارك، يكفي إنك حابب تفرق.</p>
-  <ul class="about-points">
-    <li>حملات تشجير وتنظيف في أماكن مختلفة في مصر</li>
-    <li>ورش ولقاءات توعية عن البيئة والاستدامة</li>
-    <li>مجتمع تطوعي مفتوح لأي حد عايز يشارك بوقته أو فكره</li>
-  </ul>
-</section>
 
 <footer>
   <span class="fmark">🍃</span> مبادرة الأكسجين — صُنع من أجل هوا أنضف وكوكب أخضر
